@@ -3,6 +3,9 @@ const { merge } = require("webpack-merge");
 const path = require("path");
 
 const config = merge(commonConfig, {
+  output: {
+    filename: "bundle.js",
+  },
   mode: "development",
   // webpack-dev-server plugin configuration
   devServer: {
@@ -18,6 +21,14 @@ const config = merge(commonConfig, {
       overlay: true,
     },
     liveReload: false,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
 });
 
