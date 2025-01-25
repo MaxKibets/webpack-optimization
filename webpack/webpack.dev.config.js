@@ -11,7 +11,7 @@ const config = merge(commonConfig, {
   devServer: {
     port: 9000,
     static: {
-      directory: path.resolve(__dirname, ".."),
+      directory: path.resolve(__dirname, "../dist"),
     },
     devMiddleware: {
       index: "index.html",

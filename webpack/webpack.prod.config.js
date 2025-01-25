@@ -16,6 +16,7 @@ const config = merge(commonConfig, {
     ],
   },
   plugins: [
+    // extracts css into separate file
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash:12].css",
     }),
