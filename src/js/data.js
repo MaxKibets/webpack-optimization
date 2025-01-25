@@ -1,4 +1,4 @@
-import todos from "./todos.json";
+import todos from "../todos.json";
 
 let data = todos;
 

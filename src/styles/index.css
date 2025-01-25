@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     font: 18px 'Helvetica Neue', Helvetica, Arial;
@@ -10,7 +11,7 @@ html, body {
     color: #4d4d4d;
     font-weight: 300;
 
-    
+
 }
 
 .header-image {
@@ -30,7 +31,7 @@ h1 {
     width: 80%;
     margin: 0 auto;
     background-color: #fff;
-    box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 4px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .todolist-wrapper .new-todo {
@@ -102,7 +103,7 @@ h1 {
     margin-right: 10px;
     cursor: pointer;
     visibility: hidden;
-    background: url("../images/delete.png") center no-repeat;
+    background: url("../../images/delete.png") center no-repeat;
     background-size: 90%;
 }
 
