@@ -1,12 +1,24 @@
 const commonConfig = require("./webpack.common.config.js");
 const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const config = merge(commonConfig, {
   output: {
-    filename: "[name].[contenthash:12].js",
+    filename: "js/[name].[contenthash:12].js",
   },
   mode: "production",
+  optimization: {
+    minimize: true,
+    minimizer: [
+      "...", // this will use default minimizer (TerserPlugin for JS)
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: ["default", { discardComments: { removeAll: true } }],
+        },
+      }),
+    ],
+  },
   module: {
     rules: [
       {
@@ -34,7 +46,7 @@ const config = merge(commonConfig, {
   plugins: [
     // extracts css into separate file
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash:12].css",
+      filename: "css/[name].[contenthash:12].css",
     }),
   ],
 });

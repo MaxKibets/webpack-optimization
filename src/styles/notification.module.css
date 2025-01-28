@@ -1,5 +1,7 @@
 .notification {
   background-color: #d4edda;
+  /* duplicate just for test css-nano plugin */
+  background-color: #d4edda;
   color: #155724;
   height: 50px;
   width: 100%;
