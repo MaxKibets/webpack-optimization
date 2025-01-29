@@ -1,4 +1,5 @@
 import * as styles from "../styles/notification.module.css";
+import Checkmark from "../../images/checkmark.svg";
 
 export function renderTodos(todos) {
   const renderedItemArray = todos.map(function (todo) {
@@ -7,7 +8,7 @@ export function renderTodos(todos) {
     return `
           <li data-id="${todo.id}" class="${className}">
               <span class="custom-checkbox">
-                  <img class="check" src="../images/checkmark.svg" width="22" height="22"></img>
+                  <img class="check" src="${Checkmark}" width="22" height="22"></img>
                   <input class="real-checkbox" type="checkbox" ${completionClass} />
               </span>
               <label>${todo.text}</label>

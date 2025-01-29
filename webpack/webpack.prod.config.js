@@ -44,6 +44,34 @@ const config = merge(commonConfig, {
           },
         ],
       },
+      {
+        test: /\.(jpg|png|svg)$/,
+        type: "asset",
+        parser: {
+          dataUrlCondition: {
+            // if the file is less than 10kb, it will be converted to base64,
+            // else it will be copied to the dist/images folder
+            maxSize: 10 * 1024,
+          },
+        },
+        generator: {
+          filename: "images/[name].[contenthash:12][ext]",
+        },
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                quality: 40,
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4,
+              },
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
