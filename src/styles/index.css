@@ -110,3 +110,19 @@ h1 {
         }
     }
 }
+
+.motivation-images {
+    display: flex;
+    gap: 10px;
+
+    .image-container {
+        width: 50px;
+        height: 50px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

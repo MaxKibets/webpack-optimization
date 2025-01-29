@@ -1,6 +1,8 @@
 import * as styles from "../styles/notification.module.css";
 import Checkmark from "../../images/checkmark.svg";
 
+import { getMotivationImagesList } from "./data";
+
 export function renderTodos(todos) {
   const renderedItemArray = todos.map(function (todo) {
     const className = todo.completed ? "completed" : "";
@@ -17,6 +19,8 @@ export function renderTodos(todos) {
       `;
   });
   document.querySelector(".todo-list").innerHTML = renderedItemArray.join("");
+
+  showMotivationImages();
 }
 
 export function clearNewTodoInput() {
@@ -44,4 +48,19 @@ function showNotification() {
     );
     notificationElement.parentNode.removeChild(notificationElement);
   }, 2000);
+}
+
+function showMotivationImages() {
+  const images = getMotivationImagesList();
+
+  const imageElements = images.map(function (image) {
+    return `
+          <div class="image-container">
+              <img src="${image}" alt="Motivation images" />
+          </div>
+      `;
+  });
+
+  document.querySelector(".motivation-images").innerHTML =
+    imageElements.join("");
 }

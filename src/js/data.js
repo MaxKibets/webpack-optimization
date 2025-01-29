@@ -1,4 +1,5 @@
 import todos from "../todos.json";
+import imagesPath from "../imagesList.json";
 
 let data = todos;
 
@@ -21,4 +22,8 @@ export function updateTodo(id, completed) {
     return value.id === id;
   });
   data[itemIndex].completed = completed;
+}
+
+export function getMotivationImagesList() {
+  return imagesPath;
 }
