@@ -19,8 +19,7 @@ async function fetchImages() {
 
     for (const img of images) {
       const imageUrl = img.download_url;
-      const imageName = `${img.id}.jpg`;
-      const imagePath = path.join(IMAGES_DIR, imageName);
+      const imagePath = path.join(IMAGES_DIR, `${img.id}.jpg`);
 
       // download and save the image
       const imageResponse = await axios({
@@ -29,11 +28,12 @@ async function fetchImages() {
       });
       await fs.writeFile(imagePath, imageResponse.data);
 
-      imagesUrl.push(`${IMAGES_PATH}/${imageName}`);
+      imagesUrl.push(`${IMAGES_PATH}/${img.id}.webp`);
 
       console.log(`Image downloaded: ${imagePath}`);
     }
 
+    // save the images list to a JSON file
     fs.writeFileSync(OUTPUT, JSON.stringify(imagesUrl, null, 2));
   } catch (error) {
     console.error(
