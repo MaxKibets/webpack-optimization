@@ -1,8 +1,10 @@
 const commonConfig = require("./webpack.common.config.js");
 const { merge } = require("webpack-merge");
 const path = require("path");
+const webpack = require("webpack");
 
 const config = merge(commonConfig, {
+  entry: "./src/js/index-dev.js",
   output: {
     filename: "bundle.js",
   },
@@ -60,6 +62,7 @@ const config = merge(commonConfig, {
       },
     ],
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 });
 
 module.exports = config;

@@ -2,9 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
-  entry: "./src/js/index.js",
   output: {
     path: path.resolve(__dirname, "../dist"),
+    publicPath: "/static/",
     clean: true,
   },
   module: {

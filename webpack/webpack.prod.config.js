@@ -7,6 +7,7 @@ const glob = require("glob");
 const path = require("path");
 
 const config = merge(commonConfig, {
+  entry: "./src/js/index.js",
   output: {
     filename: "js/[name].[contenthash:12].js",
   },
